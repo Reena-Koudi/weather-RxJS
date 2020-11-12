@@ -1,6 +1,6 @@
 <div>
     <input type="text" [(ngModel)]="city"><br><br>
-    <button (click)="onOptionsSelected(city)">Get weather</button>
-    <div *ngFor="let item of weatherList">{{item.location_type}}</div> 
+    <button (click)="onOptionsSelected()">Get weather</button>
+    <div *ngFor="let item of weatherList">{{item.title}} - {{item.location_type}} - {{item.woeid}} - {{item.latt_long}}</div> 
 </div>
 

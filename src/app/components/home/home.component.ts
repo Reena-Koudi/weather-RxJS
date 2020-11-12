@@ -16,20 +16,21 @@ public city: string;
   constructor(public weatherSerice: WeatherService) { }
 
   ngOnInit(): void {
+    // this.getCities(this.city);
   }
 
   getCities(city: string): void {
-    this.weatherSerice.getWeather(city)
+    this.weatherSerice.getWeatherForCity(city)
         .pipe(filter(weather => !!weather))
         .subscribe((weather: Weather[]) => {
           this.weatherList = weather;
-          console.log('Weather List', this.weatherList);
+          console.log('Weather List', weather);
         });
   }
 
-  onOptionsSelected(value: string): void{
-    if (value !== '') {
-      this.getCities(value);
+  onOptionsSelected(): void{
+    if (this.city !== '') {
+      this.getCities(this.city);
     }
   }
 }

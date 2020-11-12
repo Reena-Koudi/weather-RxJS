@@ -13,10 +13,10 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  getWeather(city: string): Observable<Weather[]>{
-    return this.http.get<Weather[]>(`${environment.apiEndPoint}/?i=${city}`).pipe(
+  getWeatherForCity(city: string): Observable<Weather[]>{
+    return this.http.get<Weather[]>(`${environment.apiEndPoint}/location/search/?query=${city}`).pipe(
       map((items: any) => {
-        return items.results;
+        return items;
       }),
       catchError((err: Error) => {
         return err.message;
