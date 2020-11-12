@@ -1,1 +1,6 @@
-<p>home works!</p>
+<div>
+    <input type="text" [(ngModel)]="city"><br><br>
+    <button (click)="onOptionsSelected(city)">Get weather</button>
+    <div *ngFor="let item of weatherList">{{item.location_type}}</div> 
+</div>
+
