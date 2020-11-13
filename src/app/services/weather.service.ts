@@ -5,7 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import { Weather } from '../models/weather';
 import { environment } from 'src/environments/environment';
 import { title } from 'process';
-import { WeatherDay } from '../models/forecast';
+import { Forecast } from '../models/forecast';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +25,8 @@ export class WeatherService {
     );
   }
 
-  getWeatherDayForCity(cityId: string): Observable<WeatherDay[]>{
-    return this.http.get<WeatherDay[]>(`${environment.apiEndPoint}/location/${cityId}`).pipe(
+  getWeatherDayForCity(cityId: number): Observable<Forecast>{
+    return this.http.get<Forecast>(`${environment.apiEndPoint}/location/${cityId}`).pipe(
       map((items: any) => {
         return items;
       }),
