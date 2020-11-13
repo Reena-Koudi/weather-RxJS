@@ -1,19 +1,30 @@
 <div>
     <input type="text" [(ngModel)]="city"><br><br>
     <button class="button" (click)="onOptionsSelected()">Get weather</button><br><br>
+    <button class="button" (click)="displayTable()" *ngIf="isForecast">
+        Back
+    </button>
    
     <div>
-        <table class="table">
+        <table class="table" *ngIf="!isForecast">
             <tr>
               <th>City</th>
               <th>Id</th>
               <th>lat-long</th>
             </tr>
-            <tr *ngFor="let item of weatherList">
+            <tr *ngFor="let item of weatherList" (click)="showForecast(item.woeid)">
               <td>{{item.title}}</td>
               <td>{{item.woeid}}</td>
               <td>{{item.latt_long}}</td>
             </tr>
+        </table>
+
+        <table class="table" *ngIf="isForecast">
+            <tr>
+                <th>ggg</th>
+                <th>jjj</th>
+                <th>lllll</th>
+              </tr>
         </table>
     </div> 
 </div>

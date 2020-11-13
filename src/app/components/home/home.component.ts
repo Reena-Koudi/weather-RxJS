@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
 public weatherList: Weather[] = [];
 public city: string;
+public isForecast = false;
 
   constructor(public weatherSerice: WeatherService) { }
 
@@ -32,5 +33,14 @@ public city: string;
     if (this.city !== '') {
       this.getCities(this.city);
     }
+  }
+
+  showForecast(woeid: number): void{
+   console.log('number', woeid );
+   this.isForecast = true;
+  }
+
+  displayTable(): void {
+    this.isForecast = false;
   }
 }
